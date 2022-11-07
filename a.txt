@@ -1,3 +1,12 @@
 wc
 git diff
 	查看未提交的修改
+git log
+	查看操作记录
+git reflog
+	查看提交记录
+git restore file
+	撤销工作区为暂存区
+	--staged file
+		撤销暂存区为仓库区
+123
