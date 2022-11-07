@@ -9,4 +9,3 @@ git restore file
 	撤销工作区为暂存区
 	--staged file
 		撤销暂存区为仓库区
-123
