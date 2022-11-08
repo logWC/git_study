@@ -6,7 +6,7 @@ git log
 git reflog
 	查看commit记录
 git reset
-	--hard commitid、--hard HEAD~x
+	--hard commitid || --hard HEAD~x
 		回退版本
 git restore
 	file
@@ -17,7 +17,7 @@ git checkout
 	<branch>
 		切换到名为branch的分支（本地）
 git branch
-	无添加、--list
+	无添加 || --list
 		查看仓库所有分支
 	-a
 		查看分支并包含远程分支
@@ -34,15 +34,15 @@ git remote
 		查看远程库信息
 	rm origin
 		删除远程主机（解除远程库和本地库的绑定）
-git pull <远程主机>
+git pull origin
 	<远程分支>:<本地分支>
 		合并远程分支到本地
-git push <远程主机>
-	<本地分支>:<远程分支>
+git push
+	origin <本地分支>:<远程分支>
 		推送本地分支到远程
-	--delete <branch>、:<branch>
+	origin --delete <branch> || :<branch>
 		删除名为branch的分支（远程）
-	git push --force <> <>:<>
+	--force <> <>:<>
 		当版本有差异时可以强制推送
-	git push -u <> <>:<>
+	-u origin <本地分支>
 		第一次推送需要加上-u
