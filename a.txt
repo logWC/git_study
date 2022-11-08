@@ -4,7 +4,10 @@ git diff
 git log
 	查看操作记录
 git reflog
-	查看提交记录
+	查看commit记录
+git reset
+	--hard commitid、--hard HEAD~x
+		回退版本
 git restore
 	file
 		撤销工作区为暂存区
