@@ -5,11 +5,12 @@ git log
 	查看操作记录
 git reflog
 	查看提交记录
-git restore file
-	撤销工作区为暂存区
+git restore
+	file
+		撤销工作区为暂存区
 	--staged file
 		撤销暂存区为仓库区
-git branch -a -d -m <branch> --list
+git branch
 	无添加、--list
 		查看仓库所有分支
 	-a
@@ -20,3 +21,11 @@ git branch -a -d -m <branch> --list
 		重命名当前分支（本地），大写为强制重命名
 	<branch>
 		创建名为branch的分支（本地）
+git pull <远程主机名>
+	<远程分支名>:<本地分支名>
+		合并分支到本地
+git push <远程主机名>
+	--delete <branch>、:<branch>
+		删除名为branch的分支（远程）
+	<本地分支>:<远程分支>
+		推送分支到远程
