@@ -28,6 +28,8 @@ git switch
 git merge
 	<branch>
 		合并名为branch的分支到当前分支
+	--quit
+		取消合并，在合并发生冲突后的一种选择
 git branch
 	无添加 || --list
 		查看仓库所有分支
