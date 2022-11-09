@@ -1,4 +1,6 @@
 wc
+git status
+	查看状态
 git diff
 	查看未提交的修改
 git log
@@ -16,6 +18,16 @@ git restore
 git checkout
 	<branch>
 		切换到名为branch的分支（本地）
+	-b <branch>
+		创建并切换到名为branch的分支（本地）
+git switch
+	-c <branch>
+		创建并切换到名为branch的分支（本地）
+	<branch>
+		切换到名为branch的分支（本地）
+git merge
+	<branch>
+		合并名为branch的分支到当前分支
 git branch
 	无添加 || --list
 		查看仓库所有分支
@@ -34,8 +46,8 @@ git remote
 		查看远程库信息
 	rm origin
 		删除远程主机（解除远程库和本地库的绑定）
-git pull origin
-	<远程分支>:<本地分支>
+git pull
+	origin <远程分支>:<本地分支>
 		合并远程分支到本地
 git push
 	origin <本地分支>:<远程分支>
@@ -46,3 +58,6 @@ git push
 		当版本有差异时可以强制推送
 	-u origin <本地分支>
 		第一次推送需要加上-u
+git clone
+	git@.....git
+		克隆远程仓库到本地
