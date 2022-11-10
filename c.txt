@@ -2,15 +2,17 @@ wc
 git status
 	查看状态
 git diff
-	查看未提交的修改
+	查看未提交暂存的修改
 git log
 	查看操作记录
 	--graph
 		查看分支合并图
+git cherry-pick <commitid>
+	复制commitid的暂存修改到目前分支
 git reflog
 	查看commit记录
 git reset
-	--hard commitid || --hard HEAD~x
+	--hard <commitid> || --hard HEAD~x
 		回退版本
 git restore
 	file
@@ -45,6 +47,16 @@ git branch
 		重命名当前分支（本地），大写为强制重命名
 	<branch>
 		创建名为branch的分支（本地）
+git stash
+	临时存储工作区（用于未提交且要更换分支的工作区存储）
+	list
+		查看临时存储的工作区
+	apply <stashid>
+		恢复某个工作区，但stash内容不删除
+	pop
+		恢复工作区，并删除stash内容
+	drop <stashid>
+		删除stash内容
 git remote
 	add origin git@......git
 		关联远程库并命名远程主机为origin
