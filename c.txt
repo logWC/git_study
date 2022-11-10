@@ -5,6 +5,8 @@ git diff
 	查看未提交的修改
 git log
 	查看操作记录
+	--graph
+		查看分支合并图
 git reflog
 	查看commit记录
 git reset
@@ -63,3 +65,8 @@ git push
 git clone
 	git@.....git
 		克隆远程仓库到本地
+git mv
+	file1 file2
+		file1重命名为file2
+
+
