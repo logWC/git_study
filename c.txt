@@ -5,7 +5,7 @@ git diff
 	查看未提交暂存的修改
 git log
 	查看操作记录
-	--graph
+	--graph --pretty=oneline --abbrev-commit
 		查看分支合并图
 git cherry-pick <commitid>
 	复制commitid的暂存（所做的修改）到目前分支
