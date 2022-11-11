@@ -81,7 +81,9 @@ git push
 	--force <> <>:<>
 		当版本有差异时可以强制推送
 	-u origin <本地分支>
-		第一次推送需要加上-u
+		第一次推送加上-u会关联远程分支
+	--set-upstream <> <>:<>
+		推送后关联远程分支
 git clone
 	git@.....git
 		克隆远程仓库到本地
