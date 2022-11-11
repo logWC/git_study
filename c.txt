@@ -53,6 +53,8 @@ git branch
 		创建名为branch的分支（本地）
 	--set-upstream-to <branch> origin/<branch>
 		关联本地和远程分支
+	--set-upstream-to=origin/<branch>
+		关联当前分支和远程分支origin/branch
 git stash
 	临时存储工作区（用于未提交且要更换分支的工作区存储）
 	list
