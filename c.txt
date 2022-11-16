@@ -120,6 +120,7 @@ git tag
 		删除指定标签
 git show
 	<tagname>
-		查看指定标签，可看到-m添加的信息
+	<commitid>
+		查看指定标签的commit信息，可看到-m添加的信息
 
 
