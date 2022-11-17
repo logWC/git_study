@@ -1,0 +1,126 @@
+wc
+git status
+	查看状态
+git diff
+	查看未提交暂存的修改
+git log
+	查看操作记录
+	--graph --pretty=oneline --abbrev-commit
+		查看分支合并图
+git cherry-pick <commitid>
+	复制commitid的暂存（所做的修改）到目前分支
+git reflog
+	查看commit记录
+git reset
+	--hard <commitid> || --hard HEAD~x
+		回退版本
+git restore
+	file
+		撤销工作区为暂存区
+	--staged file
+		撤销暂存区为仓库区
+git checkout
+	<branch>
+		切换到名为branch的分支（本地）
+	-b <branch>
+		创建并切换到名为branch的分支（本地）
+	-b <branch> origin/<branch>
+		创建并切换到名为branch的分支（本地），并关联远程分支origin/branch
+git switch
+	<branch>
+		切换到名为branch的分支（本地）
+	-c <branch>
+		创建并切换到名为branch的分支（本地）
+	-c <branch> origin/<branch>
+		创建并切换到名为branch的分支（本地），并关联远程分支origin/branch
+git merge
+	<branch>
+		合并名为branch的分支到当前分支
+	--quit
+		取消合并，在合并发生冲突后的一种选择
+	--no-ff -m message <branch>
+		普通转换，合并可见，有commit记录
+git branch
+	无添加 || --list
+		查看仓库所有分支
+	-a
+		查看分支并包含远程分支
+	-d
+		删除分支（本地），大写为强制删除
+	-m
+		重命名当前分支（本地），大写为强制重命名
+	<branch>
+		创建名为branch的分支（本地）
+	--set-upstream-to=origin/<branch> <branch>
+		关联本地分支branch和远程分支origin/branch
+git stash
+	临时存储工作区（用于未提交且要更换分支的工作区存储）
+	list
+		查看临时存储的工作区
+	apply <stashid>
+		恢复某个工作区，但stash内容不删除
+	pop
+		恢复工作区，并删除stash内容
+	drop <stashid>
+		删除stash内容
+git remote
+	add origin git@......git
+		关联远程库并命名远程主机为origin
+	-v
+		查看远程库信息
+	rm origin
+		删除远程主机（解除远程库和本地库的绑定）
+git pull
+	origin <远程分支>:<本地分支>
+		合并远程分支到本地
+	--rebase
+		本地目录需要干净，不产生新的commit
+git push
+	origin <本地分支>:<远程分支>
+		推送本地分支到远程
+	origin --delete <branch> || :<branch>
+		删除名为branch的分支（远程）
+	--force <> <>:<>
+		当版本有差异时可以强制推送
+	-u origin <本地分支>
+		第一次推送加上-u会关联远程分支
+	--set-upstream <> <>:<>
+		推送后关联远程分支
+	origin <tagname>
+		推送指定标签到远程
+	origin --tags
+		推送所有标签到远程
+	origin :refs/tags/<tagname>
+	origin --delete refs/tags/<tagname>
+	origin -d <tagname>
+	origin -d tag <tagname>
+		删除远程指定标签
+git clone
+	git@.....git
+		克隆远程仓库到本地
+git mv
+	file1 file2
+		file1重命名为file2
+git rebase
+	变基（和pull不一样的是，历史记录为一条线）
+	--continue
+		处理冲突后并git add后执行
+	--abort
+		终止冲突，返回变基前状态
+	--skip
+		丢掉引起冲突的commit
+git tag
+	无添加
+		查看所有标签
+	<tagname> commitid
+		创建新标签，commitid可选
+	-a <tagname> -m message
+		-a创建新标签，-m添加信息
+	-d <tagname>
+		删除指定标签
+git show
+	<tagname>
+	<commitid>
+		查看指定标签的commit信息，可看到-m添加的信息
+
+
