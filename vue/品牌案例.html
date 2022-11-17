@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>品牌</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        table{
+            border-collapse: collapse;
+            margin: auto;
+        }
+        td{
+            padding: 0 20px;
+        }
+    </style>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>品牌案例</h2>
+        Id：<input type="text" v-model="id" />
+        Name：<input type="text" v-model="mZ" @keyup.f2="add" />
+        <input type="button" value="添加" @click="add" />
+        搜索名称关键字：<input type="text" v-model="sel" @keyup="select()" v-focus />
+        <table border="1">
+            <th>ID</th>
+            <th>名字</th>
+            <th>时间</th>
+            <th>删除ID对应的行</th>
+            <tr v-for="(ob,i) in select()" :key="ob.id">
+                <td>{{ ob.id }}</td>
+                <td>{{ ob.mZ }}</td>
+                <td>{{ ob.ti | time }}</td>
+                <td><a href="#" @click.prevent="move(ob.ti)">{{ sC }}</a></td>
+            </tr>
+        </table>
+    </div>
+<script>
+    let vue_ = new Vue({
+        el:"#app",
+        data:{
+            list:
+            [
+                {id:"1",mZ:"法拉利",ti:new Date()},
+                {id:"2",mZ:"特斯拉",ti:new Date()}
+            ],
+            id:null,
+            mZ:null,
+            sC:"删除",
+            sel:""
+        },
+        methods:{
+            move(d){
+                index = this.list.findIndex((val) => {
+                    return val.ti == d
+                });
+                this.list.splice(index,1);
+            },
+            add(){
+                if (this.id != null && this.mZ != null){
+                    list = {id:this.id,mZ:this.mZ,ti:new Date()};
+                    this.list.push(list);
+                    this.id = this.mZ = null;
+                }
+            },
+            select(){
+                if(this.sel != ""){
+                    list2 = []
+                    this.list.forEach((val) => {
+                        if(val.mZ.indexOf(this.sel) != -1){
+                            list2.push(val)
+                        }
+                    });
+                    return list2
+                }
+                return this.list
+            }
+        },
+        filters:{"time":function(ti){
+            let dt = ti;
+            let f = dt.getFullYear();
+            let m = dt.getMonth() + 1;
+            let d = dt.getDate();
+            let h = dt.getHours().toString().padStart(2,"0");
+            let mi = dt.getMinutes().toString().padStart(2,"0");
+            let s = dt.getSeconds().toString().padStart(2,"0");
+            return `${f}-${m}-${d} ${h}:${mi}:${s}`
+        }},
+        directives:{"focus":{inserted:function(el){
+            el.focus();
+        }}}
+    });
+    // 自定义键盘修饰符
+    Vue.config.keyCodes.f2 = 113;
+    // 自定义指令,未下载插件
+    // Vue.directive("focus",{inserted : function(el){
+    //     console.log("全局定义")
+    //     el.focus();
+    // }})
+</script>
+</body>
+</html>

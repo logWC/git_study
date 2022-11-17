@@ -1,0 +1,24 @@
+
+过滤器使用
+	<h1>{{ time | timeFilter }}</h1>
+	或
+	v-bind
+	<h2 :x="msg | my"></h2>
+filters：{
+	timeFilter(val){
+		console.log(val)
+	}
+}
+
+注：
+	适用简单逻辑，如对数据格式化
+	val就是time
+	过滤器可在标签连写
+	全局过滤器
+		Vue.filter=('my',fu)
+	不能使用于v-model
+
+指令使用
+	methods{}，directives{"名字"：{bind：function(){} } }
+		当省略bind时，去掉对象，等同于把代码写到了bind和update中去
+

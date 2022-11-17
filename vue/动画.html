@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画</title>
+    <style>
+        .my-enter,.my-leave-to{
+            opacity: 0;
+        }
+        .my-enter{transform: translateX(150px);}
+        .my-enter-active,.v-leave-active{
+            transition: all 1s ease;
+        }
+        h2{user-select: none;}
+    </style>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="ad">
+        <input type="button" @click="flag=!flag" value="按钮">
+        <transition name="my">
+            <h2 v-if="flag" user-select="none">我是H2</h2>
+        </transition>
+    </div>
+<script>
+    let vue_ = new Vue({
+        el:"#ad",
+        data:{
+            flag:false
+        },
+        methods:{}
+    });
+    //document.οncοntextmenu=function(){return false;}; 
+    //document.onselectstart=function(){return false;};
+</script>    
+</body>
+</html>

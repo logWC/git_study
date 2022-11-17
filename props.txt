@@ -1,0 +1,24 @@
+接收父组件的数据（只读，浅层监视）
+props的优先级比data高
+一
+	props：{
+		name：{
+			type：String，
+			required：true
+			default："WC"
+		}
+	}
+	type：验证输入类型
+	required：是否为必传值
+	default：默认值
+	注：required不和default一起使用
+二
+	props：{
+		name：String
+	}
+	验证类型
+三
+	props：["name",,,]
+	最简写
+
+

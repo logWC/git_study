@@ -1,0 +1,41 @@
+
+默认插槽
+在组件内部使用
+	<template>
+		<span>123</span>
+		<slot>默认值：456</slot>
+	</template>
+当父组件这样写子组件时
+	<child>456</child>
+子组件会这样显示
+	123
+	456
+当父组件这样写子组件时
+	<child/>
+子组件会这样显示
+	123
+	默认值：456
+
+具名插槽
+组件内
+<slot name="a">123</slot>
+<slot name="b">456</slot>
+父组件内
+<child>
+	<h1 slot="a"></h1>
+	<h2 slot="b"></h2>
+</child>
+当包含两个DOM元素时，可以使用template包含而不用div
+当使用template时，可以这样使用slot
+	v-slot:name
+	仅限于template身上使用，但没必要用
+
+作用域插槽
+数据在组件自身，但根据数据生成的结构需要组件的使用者来决定
+组件内
+	<slot :abc="abc"></slot>
+	date(){return {abc:12345}}
+父组件（要在template内才能收到）
+	<template slot-scope="{abc}">
+	</template>
+	slot-scope可以写为scope，slot-scope为新写法

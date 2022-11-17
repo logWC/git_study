@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="di">
+        <input type="text" v-model="message">
+        <button @click="num=0">正常排序</button>
+        <button @click="num=1">升序</button>
+        <button @click="num=2">降序</button>
+        <ul>
+            <li v-for="p in computed_person" :key="p.id">{{p.name}}--{{p.sex}}--{{p.age}}</li>
+        </ul>
+    </div>
+    <script>
+        const vm = new Vue({
+            el:"#di",
+            data:{
+                num:"",
+                message: "",
+                person:[
+                    {id: 1,name: "ck",sex: "男",age:18},
+                    {id: 2,name: "jk",sex: "女",age:17},
+                    {id: 3,name: "露西亚",sex: "女",age:14},
+                    {id: 4,name: "卢西亚",sex: "男",age:15}
+                ]
+            },
+            methods: {
+                //
+            },
+            computed: {
+                computed_person(){
+                    var arr = this.person.filter((k) => {
+                        return k.name.indexOf(this.message) != -1
+                    })
+                    if (this.num){
+                        var num = this.num;
+                        this.num = "";
+                        arr.sort((a,b)=>{
+                            return num == 1 ? a.age-b.age : b.age-a.age
+                        })
+                    }
+                    return arr
+                }
+            }
+        })
+    </script>
+</body>
+</html>

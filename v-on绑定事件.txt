@@ -1,0 +1,17 @@
+<input type="button" value="按钮" v-on:click="属性名">
+
+var vm = new Vue{
+....
+methods：{属性名：函数，，，}
+}
+
+v-on:click可简写为：@click
+
+有参数时，要获得event，须在调用时传$event
+
+
+
+
+
+
+

@@ -1,0 +1,31 @@
+:class
+	动态绑定
+class
+	固定
+可两个一起写
+
+:class="className"对应的数组写法：
+	默认class1、2、3都已在style中定义
+	data:{
+		className：['class1', 'class2', 'class3']
+	}
+	等同于class="class1 class2 class3"
+:class="className"对应的对象写法：
+	data：{
+		className：{
+			class1：false，
+			class2：true，
+			class3：false
+		}
+	}
+	等同于class="class2，class3"
+:style="{fontSize：xxx}"
+	xxx为变量
+或
+:style="变量"
+	变量为对象，并运用上面的方式
+可在方法内改变数组、对象
+
+
+
+

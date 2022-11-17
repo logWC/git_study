@@ -1,0 +1,14 @@
+在vm的beforeCreate生命函数加
+	Vue.prototype.x = this
+	此时的x可用于各组件在mounted中的通信，
+		this.x.$on('wc',fun)
+
+	使用并传值
+		this.x.$emit('wc',参数)
+
+注意
+	一般x写为$bus
+	在销毁前函数，即beforeDestroy函数
+		应该使用this.x.$off('wc')清除自定义事件
+
+

@@ -1,0 +1,33 @@
+<p v-color="'blue'"></p>
+调用要加v-，命名不用加v-
+指令所在的模板发生变化时指令会重新调用
+指令的回调函数的this是window
+指令名如果是多个单词，要使用kebab-case命名方式，不用camelCase命名
+
+用法1：v-name
+用法2：v-name:value=""
+
+写法1：Vue-directive("名字"，{对象})
+	参数2是对象，有一些指令相关的函数，可以在特定的阶段执行相关的操作。
+写法2：Vue-direcrive( "name"，函数或对象 )
+	只写bind和update
+
+bind：function(el，binding){}		
+	当绑定到元素上时，会立即执行这个函数
+	还没有插入到DOM中
+	和style有关，最好使用
+	el
+		表示被绑定指令的哪个元素，el是原生的js对象。
+	binding
+		是一个对象
+		binging属性：
+			name：指令名，不包含v-
+			value：传入的值，blue
+			expression：传入值的字符串，'blue'
+inserted：function(){}	
+		元素插入到DOM中的时候，会执行的函数【触发一次】
+		插入到了DOM中
+		和js行为有关操作，最好使用
+updated：function(){}
+		当VNode（模板）更新的时候，会执行，可能会触发多次
+

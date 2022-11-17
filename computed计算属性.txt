@@ -1,0 +1,4 @@
+methods：{}，computed：{'属性名'，function(){return }}
+	在，computed中，可以定义属性，叫做计算属性，本质是方法
+只要所用到的data中的数据发生了变化，就会重新计算
+第二次引用不会重新调用

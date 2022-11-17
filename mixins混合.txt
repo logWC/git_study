@@ -1,0 +1,14 @@
+理解：把同样的代码，抽出到一个文件中
+	使用时模块导入，添加根属性mixins
+	misins值为“数组”，数组value为导入的名称
+	若为生命函数，都会运行（先运行混合）,否则同名时优先组件内部方法和数据
+导入
+	import {name,,} from 'xxxx'
+
+一
+	mixins：[name,,,,]
+二
+	Vue.mixin(name)
+
+
+

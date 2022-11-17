@@ -1,0 +1,11 @@
+<component :is=" '组件名称' ">
+	占位符，使用：is属性指定要展示的组件的名称
+<template>
+	组件的HTML结构，在body标签使用
+<transition>
+	包含了单个过渡元素
+<transitionGroup>
+	包含了多个如列表
+<router-view></router-view>
+	路由的占位符
+

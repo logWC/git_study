@@ -1,0 +1,16 @@
+vue-resource
+先导包
+然后写根路径：Vue.http.options.root=""，url前面不能写/，要以相对路径开头
+后
+result
+this.$http.get（url，[options]）.then(successCallback，可选的errorCallback)
+this.$http.post（url，[body]，[options]）.then(successCallback，可选的errorCallback)
+this.$http.jsonp(url，[options]).then(result => {console.log(result.body)})
+[body]为提交给服务器的数据
+通过post的[options]为{emulateJSON：true}设置提交的内容类型为普通表单数据格式
+	还可全局配置，Vue.http.options.emulateJSON = true;
+函数的参数1为返回的数据对象
+	通过参数1.body拿到返回的数据
+
+
+

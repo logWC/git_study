@@ -1,0 +1,10 @@
+@keyup.enter="方法"
+
+
+元素.keyCode == 数字
+
+
+
+
+
+

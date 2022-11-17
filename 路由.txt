@@ -1,0 +1,92 @@
+切掉的组件都被销毁了
+每个路由组件都有自己的$route属性
+整个应用只有一个router，可以通过组件的$router属性获取到
+导入vue-router并命名为VueRouter后
+new VueRouter(
+	routes：[{
+	path："/naem",			一级路由组件
+	component："Name",
+	children：[
+		{
+		path："name1",
+		component："Name1"	二级路由组件
+		},
+		{
+		path："name2",
+		component："Name2"	二级路由组件
+		}
+	]，
+	params：{}，			传参方法（配置路径传要占位符）
+	query：{}				传参方法（路径传与get一样）
+}，一级路由，一级路由，一级路由])
+
+body
+	<a href=#/login>组件</a>
+	或
+	<router-link action-class replate to="/login" tag="标签">组件</router-link>
+	<router-view></router-view>
+
+注：	router-link默认渲染为a标签
+	设置replace后会把前一条路由历史替换掉
+
+设置默认路由
+	{path：'/'，redirect：'/login'}
+修改默认类名
+	routes：[]，linkActiveClass：'myclass'
+同时匹配多个路由
+	<router-view name="名字">专属组件的占位符</router-view>
+	{path：'/'，components：{'名字'：组件名字，'名字'：'组件名字'}}
+不用router-link标签转换路由
+	在方法内this.$router.push(
+		{}	对象内和to的配置一样
+	)
+	在方法内应用this.$router.replace(
+		{}	对象内和to配置一样
+	)
+返回历史的上一个路由
+	在方法内this.$router.back()
+前进历史的下一个路由
+	在方法内this.$router.forward()
+历史go
+	this.$router.go()
+		go接收一个数字，设为n
+		负数往上n步，整数往下n步
+转换时不销毁路由
+	在<router-view>标签中写一个父标签：
+		<keep-alive include>
+		不写或include没值默认所有子路由，也可指定不销毁的子路由组件，值为组件名
+路由独有的生命函数
+	activated（）{}
+	激活
+	deactivated（）{}
+	销毁
+前置路由守卫
+	每次路由切换前调用
+	路由实例.beforeEach(函数)
+	接收三个参数，to去，from从，next放行
+	next使用方法，next()
+路由元信息
+	与path同级，meta为一个对象，
+	可使用在 路由守卫判断是否需要进行校验
+后置路由守卫
+	每次路由切换后调用
+	路由实例.afterEach(函数)
+	没有next
+独享路由守卫
+	与path同级
+	beforeEnter	前置，没有后置
+组件内的路由守卫
+	组件内
+	beforeRouteEnter(to，from，next){}
+		通过路由规则进入该组件时被调用
+	beforeRouteLeave(to，from，next){}
+		通过路由规则离开该组件时被调用
+
+路由器的两种工作模式（默认为hash模式）哈希
+	hash：路由的开始路径前有#/
+		hash模式不会把/#/及路由路径发送到服务器
+		兼容性好
+	history：
+		需要改mode的值为history
+注：mode与路由配置的routes同级
+

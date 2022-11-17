@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本命令</title>
+    <style>
+        [v-cloak]{display:none;}
+    </style>
+<script src="vue.js"></script>
+</head>
+<body>
+    <!-- 绑定div块 -->
+    <div id="di">
+        <!-- v-cloak、v-text。v-html -->
+        <p v-cloak>{{p}}</p>
+        <span v-text="span"></span>
+        <div v-html="b"></div>
+        <!-- v-bind、v-on绑定事件 -->>
+        <input type="button" :title="title" value="按钮" v-on:click="myclick">
+    </div>
+    <script>
+        let vue1 = new Vue({
+            el:"#di",
+            data:{
+                p:"我是一个傻傻的p标签！",
+                span:"自古深情还是我span！",
+                b:"<h2>我是v-html制作的b！</h2>",
+                title:"我是title"
+            },
+            methods:{
+                myclick:() => alert("我是点击事件")
+            }
+        })
+    </script>
+</body>
+</html>

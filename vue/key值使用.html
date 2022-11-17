@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>key值使用</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="di">
+        <ul>
+            <li v-for="(p,index) in person" :key="index">
+                {{ p.name }}
+                <span>{{a++}}</span>
+            </li>
+        </ul>
+        <button @click.once="add">只添加一次</button>
+    </div>
+    <script>
+        new Vue({
+            el:"#di",
+            data:{
+                    person:[
+                        {id:1,name:"张三",age:18},
+                        {id:2,name:"李四",age:20},
+                        {id:3,name:"王五",age:28}
+                    ],
+                    a:0
+            },
+            methods: {
+                add(){
+                    this.person.unshift({id:4,name:"老六",age:40})
+                }
+            },
+        })
+    </script>
+</body>
+</html>

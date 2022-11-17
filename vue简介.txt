@@ -1,0 +1,17 @@
+<!-- 学习使用，返回的是最新版本 -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<!-- 生产使用，可指定版本避免最新版本存在bug影响应用-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+
+	new Vue({
+		el："#id"，
+		data：{存储的变量}，
+		methods：{存储的事件函数}
+	})
+
+注意：
+	想获取data数据，或methods方法，要使用this.数据属性名
+	箭头函数的this和外部的this保持一致
+
+attribute：（赋予的）属性
+property:（固有的）特性

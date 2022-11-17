@@ -1,0 +1,16 @@
+当前节点中的变量只运行一次，
+以后数据的改变不会引起v-once所在结构的更新
+v-once没有值
+
+v-cloak在Vue运行时移除
+	v-cloak没有值
+	配合css可防止出现为解析的插值变量
+	[v-cloak]{
+		display：none;
+	}
+	<h2 v-cloak>{{ name }}<h2>
+v-pre（vue不解析）
+	没有值
+
+
+

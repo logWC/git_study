@@ -1,0 +1,46 @@
+<transition name=xxx></transitioin>
+	使用name代替v，则私有化样式
+入场
+	.v-enter：进入起点样式
+	.v-enter-to：进入终点样式
+	.v-enter-active：入场时间及过度效果
+离场（隐藏）
+	.v-enter
+	.v-leave-to
+	.v-leave-active
+删除时的动画
+	.v-move
+		删除时运行的动画，要在v-leave-active中设置position
+第一种写法
+	在v-enter-active写过渡属性transition
+	在v-enter和v-enter-to写transform属性进行2D或3D转换
+第二种写法
+	在v-enter-active写动画name即animation
+	在@keyframs规则写不同时段的动画
+
+钩子函数
+	前半部
+	@before-enter
+		动画入场前，动画尚未开始
+	@enter
+		el.offsetWidth，el.offsetTop等，会强制动画刷新
+		动画开始之后，可以设置完成动画之后的，结束状态
+		第二个参数是afert-enter函数的引用
+	@after-enter
+		动画完成之后的状态
+列表使用：<transition-group appear tag="ul" mode="out-in">
+		appear为入场效果立即运行，
+		tag指定渲染为什么标签
+		mode设置切换时候的方式
+第三方css类
+	animate.css
+		enter-active-class：入场类
+		leave-active-class：离场类
+				animated：基本类
+		属性绑定
+			：duration：毫秒时长{enter：200，leave：400}
+
+
+
+
+

@@ -1,0 +1,10 @@
+<p>{{ text | 名字 }}</p>
+filter
+	过滤器
+	Vue.filter(“名字”，函数)
+	函数的第一个参数为字符串
+keyup
+	Vue.config.keyCodes.别名 = 键数字；
+
+
+

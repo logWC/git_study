@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>走马灯效果</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="di">
+        <input type="button" value="开启" @click="long" />
+        <input type="button" value="停止" @click="stop" />
+        <p v-text="py_p"></p>
+    </div>
+    <script>
+        let di = new Vue({
+            el:"#di",
+            data:{
+                py_p:"我是一个小小的p！",
+                intervalId:null,
+            },
+            methods:{
+                long() {
+                    if (this.intervalId != null) return;
+                    this.intervalId = setInterval(() => {
+                        let start = this.py_p.substring(0,1);
+                        let end = this.py_p.substring(1);
+                        this.py_p = end + start;
+                    },400)
+                },
+                stop() {
+                    clearInterval(this.intervalId);
+                    this.intervalId = null;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

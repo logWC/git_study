@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件修饰符</title>
+    <style>
+        .di{
+            width: 200px;
+            height: 200px;
+            background-color: blueviolet;
+        }
+    </style>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="di" @click.capture="divhan">
+            <input type="button" value="按钮" @click="bunhan" />
+            <a href="https://baidu.com" @click.prevent.stop="preventClick">百度</a>
+        </div>
+    </div>
+    <script>
+        let vue_ = new Vue({
+            el:"#app",
+            methods:{
+                divhan(){
+                    console.log("我是div");
+                },
+                bunhan(){
+                    console.log("我是button按钮，使用了stop修饰符");
+                },
+                preventClick(){
+                    console.log("我阻止了a的默认事件");
+                }
+            }
+        })
+    </script>
+</body>
+</html>

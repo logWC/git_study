@@ -1,0 +1,5 @@
+残缺版vue需要模板
+参数
+	createElement
+使用方法
+	el：""，render：h => h(App)

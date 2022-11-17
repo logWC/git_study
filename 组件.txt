@@ -1,0 +1,48 @@
+VueComponent
+	每一个组件本质是一个VueComponent构造函数，是Vue.extend生成的
+	不同name的组件不共用一个VueComponent构造函数，
+	即每次调用Vue.extend返回的都是一个全新的VueComponent
+	每在模板使用一次组件，都会new对应的VueComponent构造函数
+	组件中的this都是VueComponent实例对象
+	VueComponent.prototype.__proto__ === Vue.prototype
+命名规范
+	一个单词，首字母可选择大写，其余为小写
+	多个单词，CamelCase（需要脚手架），或使用kebab-case
+	可以使用name配置项指定组件在开发者工具中呈现的名字
+template
+	只能有一个根元素
+	指定组件要展示的HTML结构
+使用全局组件
+	<my-coml v-bind:parentmsg=“msg” v-on:func="方法"></my-coml>
+	绑定了父组件data中的msg属性，parentmsg为使用名称
+	子组件要在props数据中定义才能使用父组件的属性，如parentmsg
+	props中的数据是只读的
+
+	传给子组件的方法，子组件在调用的时候要通过调用自身methods中的方法，
+		在方法里面this.$emit('func'，参数)调用，参数为父
+		中方法的形参，可通过传参修改父组件的属性
+一
+创建全局组件
+	let coml = Vue.extend({template:`HTML`},,,)
+注册组件名称
+	Vue.component("name,如myComl"，创建出来的组件模板对象，如coml)
+二
+	Vue.component("组件名称"，{template: HTML结构})
+三
+	<template id="tem">HTML结构</template>
+	Vue.component("组件名称",{template：'#tem'})
+私有组件
+	methods{}.components{“组件名称”：{template：'#tem'}}
+	methods{}.components{name1(){template:HTML结构},name2(){template:HTML结构}......}
+组件的data
+	使用函数命名data，return对象数据
+	使用函数是为了重用组件时，使用的data是独立的
+切换组件
+一
+	组件1使用v-if="变量"，组件2使用v-else="同一个变量"，通过改变变量的布尔值切换组件
+二
+	<component :is="'组件名称'"></component>
+	组件名称可通过点击事件改变
+单文件组件单一style，样式只在组件内使用
+	<style scoped>
+	App不适合使用scoped

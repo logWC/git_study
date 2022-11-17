@@ -1,0 +1,23 @@
+只能运用在表单元素中
+<input type="text" v-model="变量"  />
+
+默认值要在css或变量中写入
+radio
+	须设置value值
+	v-model为变量值
+checkbox
+	设置value值
+	多个v-model对应的值要为数组
+	单个checkbox也可写字符串，
+	但值为布尔值，
+select-option
+	与radio一致
+修饰符
+	v-model.number
+		一般与type=number使用
+	lazy
+		失去焦点再收集数据
+	trim
+		去掉前后空格
+
+

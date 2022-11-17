@@ -1,0 +1,22 @@
+watch可以监视计算属性（computed）
+data属性对象中的属性
+函数接收俩个数据，第一个为新数据，第二个为旧数据
+immediate：true
+	立即执行（默认false）
+deep：true
+	可监视对象中数据的变化（深度监控）（默认false）
+	vue中的watch默认不监测对象内部值的改变（一层）
+	配置deep：true可以监测对象内部值改变（多层）
+
+第一种方式
+简写：
+watch：{data中的属性名(){data中属性改变触发} }
+'$route.path'：function(){监听路由改变}
+正常写法：
+	watch：{data中的属性：{handler(新数据，旧数据){ }，，}}
+	handler函数
+第二种方式
+	vm.$watch("属性名"，{}或函数)
+
+
+

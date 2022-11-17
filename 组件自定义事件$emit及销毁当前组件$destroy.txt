@@ -1,0 +1,45 @@
+给组件的实例对象绑定自定义事件，不用props接收
+适用于子传父
+
+
+第一种写法
+	<Child v-on:wc=demo />
+
+第二种写法
+	<Child ref='abc'>
+	mounted(){
+		this.$refs.abc.$on('wc'，this.demo)
+	}
+
+注意
+	wc为自定义事件name
+		通过在Child.vue里面：this.$emit('wc'，参数)，进行调用
+	demo为父组件本身的函数
+	绑定原生DOM事件，要使用native修饰符
+
+	使用ref更灵活，比如几秒后绑定事件
+	如果只触发一次之类，第一种写法：wc写成wc.once
+			第二种写法：$on写成$once
+解绑自定义事件
+	Child.vue内
+		this.$off('wc')
+			解绑一个事件
+		this.$off(['wc',,,,,,])
+			解绑多个事件
+		this.$off()
+			解绑所有的自定义事件
+销毁当前组件的实例
+	Child.vue内
+		this.$destroy()
+	原生事件依然有用
+
+
+
+
+
+
+
+
+
+
+

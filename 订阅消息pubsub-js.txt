@@ -1,0 +1,21 @@
+npm i pubsub-js
+因为是第三方库，所以回调函数的this不是vue的实例对象
+	可用箭头函数代替，或者把函数写在methods，在订阅时this调用
+
+订阅消息
+	首先导入pubsub-js
+		import pubsub from 'pubsub-js'
+	然后在mounted订阅
+		this.pubId = pubsub.subscribe('name'，回调函数)
+	注
+		回调函数的第一个参数为name，第二个才是参数
+发布消息
+	导入pubsub-js
+	然后发布方法
+		pubsub.publish('name'，参数)
+取消订阅
+	在beforeDestroy取消
+		pubsub.unsubscribe(this.pubId)
+
+
+

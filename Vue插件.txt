@@ -1,0 +1,11 @@
+本质是包含install方法的一个对象
+	install的第一个参数是Vue，
+	第二个后是插件使用者传递的数据
+export default {
+	install（Vue）{
+		
+	}
+}
+导入使用（一般在main导入）
+	import name from './///'
+	Vue.use(name)

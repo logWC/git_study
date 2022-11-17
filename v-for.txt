@@ -1,0 +1,4 @@
+<p v-for="(item, i) in list" :key=> </p>	item：值，i：索引，list：数组
+当遍历对象时，第三个值为索引值
+list还可以放数字，遍历时迭代数字从1开始
+同时要加keys属性，只能使用number或string，使用v-bind，如

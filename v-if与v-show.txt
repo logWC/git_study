@@ -1,0 +1,20 @@
+v-if特点：删除或创建元素
+	较高切换性能消耗
+v-if="n == 1"
+v-else-if="n == 2"
+v-else
+注意：必须连续写
+v-show特点：切换元素的display：none样式
+	较高初始渲染消耗
+
+高级写法：
+	只能使用v-if
+	<template v-if="n == 1">
+		<h2>你好</h2>
+		<h2>hello</h2>
+		<h2>再见</h2>
+	</template>
+
+
+
+
