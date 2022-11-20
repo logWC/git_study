@@ -14,8 +14,10 @@ git cherry-pick <commitid>
 git reflog
 	查看commit记录
 git reset
-	--hard <commitid> || --hard HEAD~x
-		回退版本
+	--hard <commitid>
+		删除未提交，回退版本
+	commitid
+		回退版本到未提交
 git restore
 	file
 		撤销工作区为暂存区
